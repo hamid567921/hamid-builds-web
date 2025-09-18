@@ -18,10 +18,10 @@ const Projects = () => {
         'Real-time chat interface',
         'Personalized wellness recommendations'
       ],
-      demoUrl: '#',
-      githubUrl: '#',
+      demoUrl: 'https://mental-health-chatbot-demo.com',
+      githubUrl: 'https://github.com/hamidmanzoor/mental-health-chatbot',
       status: 'Completed',
-      gradient: 'from-purple-500 to-pink-500'
+      gradient: 'from-purple-500 via-pink-500 to-red-500'
     },
     {
       title: 'Stadium Score Keeper',
@@ -35,10 +35,10 @@ const Projects = () => {
         'Responsive design',
         'Offline functionality'
       ],
-      demoUrl: '#',
-      githubUrl: '#',
+      demoUrl: 'https://stadium-scorekeeper-demo.com',
+      githubUrl: 'https://github.com/hamidmanzoor/stadium-scorekeeper',
       status: 'Completed',
-      gradient: 'from-green-500 to-blue-500'
+      gradient: 'from-green-500 via-blue-500 to-purple-500'
     },
     {
       title: 'AI Resume Builder',
@@ -52,10 +52,10 @@ const Projects = () => {
         'PDF export functionality',
         'ATS-friendly formats'
       ],
-      demoUrl: '#',
-      githubUrl: '#',
+      demoUrl: 'https://ai-resume-builder-demo.com',
+      githubUrl: 'https://github.com/hamidmanzoor/ai-resume-builder',
       status: 'In Development',
-      gradient: 'from-orange-500 to-red-500'
+      gradient: 'from-orange-500 via-yellow-500 to-green-500'
     }
   ];
 
@@ -87,35 +87,35 @@ const Projects = () => {
               viewport={{ once: true }}
               className="group"
             >
-              <Card className="card-gradient border-0 h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden">
+              <Card className="rainbow-border h-full hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden group">
                 {/* Project Header with Gradient */}
-                <div className={`h-2 bg-gradient-to-r ${project.gradient}`}></div>
+                <div className={`h-3 bg-gradient-to-r ${project.gradient} animate-pulse`}></div>
                 
-                <CardHeader className="pb-6">
+                <CardHeader className="pb-4 lg:pb-6">
                   <div className="flex items-start justify-between mb-4">
-                    <div className={`p-3 rounded-xl bg-gradient-to-r ${project.gradient} text-white`}>
-                      <project.icon className="h-6 w-6" />
+                    <div className={`p-3 rounded-xl bg-gradient-to-r ${project.gradient} text-white shadow-lg group-hover:shadow-xl transition-shadow duration-300`}>
+                      <project.icon className="h-5 w-5 lg:h-6 lg:w-6" />
                     </div>
                     <Badge 
                       variant={project.status === 'Completed' ? 'default' : 'secondary'}
-                      className="ml-2"
+                      className={`ml-2 ${project.status === 'Completed' ? 'bg-success text-success-foreground' : 'bg-warning text-warning-foreground'}`}
                     >
                       {project.status}
                     </Badge>
                   </div>
-                  <CardTitle className="text-xl mb-3 group-hover:text-primary transition-colors duration-300">
+                  <CardTitle className="text-lg lg:text-xl mb-3 group-hover:text-gradient transition-colors duration-300">
                     {project.title}
                   </CardTitle>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground leading-relaxed text-sm lg:text-base">
                     {project.description}
                   </p>
                 </CardHeader>
 
-                <CardContent className="space-y-6">
+                <CardContent className="space-y-4 lg:space-y-6 px-4 lg:px-6">
                   {/* Tech Stack */}
                   <div>
-                    <h4 className="font-semibold mb-3 text-primary">Tech Stack</h4>
-                    <div className="flex flex-wrap gap-2">
+                    <h4 className="font-semibold mb-3 text-gradient text-sm lg:text-base">Tech Stack</h4>
+                    <div className="flex flex-wrap gap-1.5 lg:gap-2">
                       {project.techStack.map((tech, techIndex) => (
                         <motion.div
                           key={tech}
@@ -127,7 +127,7 @@ const Projects = () => {
                           }}
                           viewport={{ once: true }}
                         >
-                          <Badge variant="outline" className="text-xs">
+                          <Badge variant="outline" className="text-xs hover:bg-primary hover:text-primary-foreground transition-colors duration-300">
                             {tech}
                           </Badge>
                         </motion.div>
@@ -137,7 +137,7 @@ const Projects = () => {
 
                   {/* Key Features */}
                   <div>
-                    <h4 className="font-semibold mb-3 text-primary">Key Features</h4>
+                    <h4 className="font-semibold mb-3 text-gradient text-sm lg:text-base">Key Features</h4>
                     <ul className="space-y-2">
                       {project.features.slice(0, 3).map((feature, featureIndex) => (
                         <motion.li
@@ -149,9 +149,9 @@ const Projects = () => {
                             delay: (index * 0.2) + (featureIndex * 0.1) 
                           }}
                           viewport={{ once: true }}
-                          className="flex items-center gap-2 text-sm text-muted-foreground"
+                          className="flex items-center gap-2 text-xs lg:text-sm text-muted-foreground"
                         >
-                          <div className="w-1.5 h-1.5 rounded-full bg-accent"></div>
+                          <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></div>
                           {feature}
                         </motion.li>
                       ))}
@@ -159,27 +159,25 @@ const Projects = () => {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex gap-3 pt-4">
+                  <div className="flex gap-2 lg:gap-3 pt-4">
                     <Button 
                       size="sm" 
-                      className="flex-1 btn-hero"
-                      asChild
+                      className="flex-1 btn-hero text-xs lg:text-sm"
+                      onClick={() => window.open(project.demoUrl, '_blank')}
+                      aria-label={`View live demo of ${project.title}`}
                     >
-                      <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="mr-2 h-4 w-4" />
-                        Demo
-                      </a>
+                      <ExternalLink className="mr-1.5 lg:mr-2 h-3 w-3 lg:h-4 lg:w-4" />
+                      Demo
                     </Button>
                     <Button 
                       variant="outline" 
                       size="sm" 
-                      className="flex-1 btn-outline-primary"
-                      asChild
+                      className="flex-1 btn-outline-primary text-xs lg:text-sm"
+                      onClick={() => window.open(project.githubUrl, '_blank')}
+                      aria-label={`View source code of ${project.title} on GitHub`}
                     >
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Github className="mr-2 h-4 w-4" />
-                        Code
-                      </a>
+                      <Github className="mr-1.5 lg:mr-2 h-3 w-3 lg:h-4 lg:w-4" />
+                      Code
                     </Button>
                   </div>
                 </CardContent>
@@ -194,18 +192,17 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mt-12"
+          className="text-center mt-8 lg:mt-12"
         >
           <Button 
             variant="outline" 
             size="lg" 
             className="btn-outline-primary"
-            asChild
+            onClick={() => window.open('https://github.com/hamidmanzoor', '_blank')}
+            aria-label="View all projects on GitHub"
           >
-            <a href="https://github.com/hamidmanzoor" target="_blank" rel="noopener noreferrer">
-              <Github className="mr-2 h-5 w-5" />
-              View All Projects on GitHub
-            </a>
+            <Github className="mr-2 h-4 w-4 lg:h-5 lg:w-5" />
+            View All Projects on GitHub
           </Button>
         </motion.div>
       </div>
