@@ -98,7 +98,7 @@ const Hero = () => {
               transition={{ delay: 0.8, duration: 0.6 }}
             >
               <a 
-                href="https://github.com/hamidmanzoor" 
+                href="https://github.com/hamid567921" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-all duration-300 p-2 hover:scale-110 hover:shadow-lg rounded-full"
@@ -107,7 +107,7 @@ const Hero = () => {
                 <Github className="h-5 w-5 md:h-6 md:w-6" />
               </a>
               <a 
-                href="https://linkedin.com/in/hamidmanzoor" 
+                href="https://www.linkedin.com/in/hamid-manzoor-76735b203?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-all duration-300 p-2 hover:scale-110 hover:shadow-lg rounded-full"
