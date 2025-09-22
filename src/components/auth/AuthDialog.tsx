@@ -35,7 +35,7 @@ export const AuthDialog = ({ children }: AuthDialogProps) => {
     } catch (error: any) {
       toast({
         title: 'Sign in failed',
-        description: error.message,
+        description: error.message || 'Please connect Supabase to enable authentication.',
         variant: 'destructive',
       });
     } finally {
@@ -58,7 +58,7 @@ export const AuthDialog = ({ children }: AuthDialogProps) => {
     } catch (error: any) {
       toast({
         title: 'Sign up failed',
-        description: error.message,
+        description: error.message || 'Please connect Supabase to enable authentication.',
         variant: 'destructive',
       });
     } finally {
