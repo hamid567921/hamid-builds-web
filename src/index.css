@@ -277,7 +277,7 @@
 }
 
 @layer utilities {
-  /* Custom animations */
+  /* Enhanced animations and modern typography utilities */
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -309,27 +309,56 @@
     }
   }
 
-  /* Glassmorphism and colorful effects */
+  @keyframes typewriter {
+    0% { width: 0; }
+    100% { width: 100%; }
+  }
+
+  @keyframes blink {
+    0%, 50% { border-color: transparent; }
+    51%, 100% { border-color: currentColor; }
+  }
+
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  @keyframes bounceGentle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+
+  /* Enhanced glassmorphism and modern effects */
   .glass {
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .dark .glass {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   }
 
   .rainbow-border {
     background: var(--gradient-rainbow);
-    padding: 2px;
-    border-radius: 12px;
+    background-size: 200% 200%;
+    padding: 3px;
+    border-radius: 50%;
+    animation: gradientShift 6s ease-in-out infinite;
   }
 
   .rainbow-border > * {
-    border-radius: 10px;
+    border-radius: 50%;
     background: hsl(var(--background));
   }
 
-  /* Responsive utilities */
+  /* Enhanced responsive utilities */
   .mobile-center {
-    @apply text-center sm:text-left;
+    @apply text-center lg:text-left;
   }
 
   .mobile-stack {
@@ -337,63 +366,69 @@
   }
 
   .responsive-padding {
-    @apply px-4 sm:px-6 lg:px-8 xl:px-12;
+    @apply px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-20;
   }
 
   .responsive-text {
-    @apply text-sm sm:text-base lg:text-lg;
+    @apply text-sm sm:text-base lg:text-lg xl:text-xl;
   }
 
-  /* Enhanced mobile utilities */
-  .mobile-hidden {
-    @apply hidden sm:block;
+  .responsive-heading {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
   }
 
-  .mobile-only {
-    @apply block sm:hidden;
+  .responsive-subheading {
+    @apply text-lg sm:text-xl md:text-2xl lg:text-3xl;
   }
 
+  /* Touch-friendly improvements for mobile */
   .touch-friendly {
-    @apply min-h-[44px] min-w-[44px];
+    @apply min-h-[48px] min-w-[48px] touch-manipulation;
   }
 
   .safe-area-padding {
-    padding-top: env(safe-area-inset-top);
-    padding-bottom: env(safe-area-inset-bottom);
-    padding-left: env(safe-area-inset-left);
-    padding-right: env(safe-area-inset-right);
+    padding-top: max(env(safe-area-inset-top), 1rem);
+    padding-bottom: max(env(safe-area-inset-bottom), 1rem);
+    padding-left: max(env(safe-area-inset-left), 1rem);
+    padding-right: max(env(safe-area-inset-right), 1rem);
   }
 
-  /* Modern card effects */
+  /* Modern card effects with better animations */
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02];
+    @apply transition-all duration-500 ease-out hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02];
   }
 
-  .glass-effect {
-    @apply backdrop-blur-md bg-white/10 border border-white/20;
+  .card-hover:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   }
 
-  .dark .glass-effect {
-    @apply backdrop-blur-md bg-black/10 border border-white/10;
+  /* Background size for animated gradients */
+  .bg-size-200 {
+    background-size: 200% 200%;
   }
 
-  /* Enhanced animations */
+  /* Enhanced stagger animations */
   .animate-slide-in-left {
-    animation: slideInLeft 0.6s ease-out;
+    animation: slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .animate-slide-in-right {
-    animation: slideInRight 0.6s ease-out;
+    animation: slideInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .animate-scale-in {
-    animation: scaleIn 0.5s ease-out;
+    animation: scaleIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   @keyframes slideInLeft {
     from {
       opacity: 0;
-      transform: translateX(-50px);
+      transform: translateX(-60px);
     }
     to {
       opacity: 1;
@@ -404,7 +439,7 @@
   @keyframes slideInRight {
     from {
       opacity: 0;
-      transform: translateX(50px);
+      transform: translateX(60px);
     }
     to {
       opacity: 1;
@@ -415,11 +450,36 @@
   @keyframes scaleIn {
     from {
       opacity: 0;
-      transform: scale(0.9);
+      transform: scale(0.8);
     }
     to {
       opacity: 1;
       transform: scale(1);
     }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Typography enhancements */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Performance optimizations */
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .will-change-opacity {
+    will-change: opacity;
   }
 }

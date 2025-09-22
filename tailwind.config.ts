@@ -92,9 +92,26 @@ export default {
             height: "0",
           },
         },
+        "typewriter": {
+          "0%": { width: "0" },
+          "100%": { width: "100%" },
+        },
+        "blink": {
+          "0%, 50%": { borderColor: "transparent" },
+          "51%, 100%": { borderColor: "currentColor" },
+        },
+        "gradient-shift": {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
+        "bounce-gentle": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-5px)" },
+        },
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
+        display: ["Space Grotesk", "Inter", "sans-serif"],
         mono: ["Fira Code", "monospace"],
       },
       animation: {
@@ -104,6 +121,10 @@ export default {
         "slide-up": "slideUp 0.8s ease-out", 
         "float": "float 3s ease-in-out infinite",
         "pulse-slow": "pulse 3s ease-in-out infinite",
+        "typewriter": "typewriter 3s steps(30) 1s both",
+        "blink": "blink 1s infinite",
+        "gradient-shift": "gradient-shift 6s ease-in-out infinite",
+        "bounce-gentle": "bounce-gentle 2s ease-in-out infinite",
       },
     },
   },
