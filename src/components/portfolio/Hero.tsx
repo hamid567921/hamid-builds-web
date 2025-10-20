@@ -36,15 +36,9 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen relative bg-gradient-to-br from-background via-primary/5 to-accent/5 flex items-center justify-center overflow-hidden py-16 sm:py-20">
-      {/* Subtle animated shapes */}
-      <div className="absolute inset-0 overflow-hidden opacity-40">
-        <div className="absolute top-20 right-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 left-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-      </div>
-
-      <div className="container mx-auto responsive-padding relative z-10 max-w-6xl">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+    <section id="hero" className="min-h-[85vh] relative bg-gradient-to-br from-background via-primary/3 to-accent/3 flex items-center justify-center overflow-hidden py-12 sm:py-16">
+      <div className="container mx-auto responsive-padding relative z-10 max-w-5xl">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-10 items-center">
           
           {/* Profile Image - Compact Circle */}
           <motion.div 
@@ -53,27 +47,20 @@ const Hero = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, type: "spring" }}
           >
-            <div className="relative">
-              <div className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden shadow-xl ring-4 ring-primary/20">
-                <motion.img 
-                  src={hamidProfile} 
-                  alt="Hamid Manzoor - Frontend Developer"
-                  className="w-full h-full object-cover"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </div>
-              <motion.div 
-                className="absolute -inset-2 rounded-full bg-gradient-to-tr from-primary/30 to-accent/30 -z-10"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            <div className="w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden shadow-xl ring-2 ring-primary/20">
+              <motion.img 
+                src={hamidProfile} 
+                alt="Hamid Manzoor - Frontend Developer"
+                className="w-full h-full object-cover"
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.3 }}
               />
             </div>
           </motion.div>
 
           {/* Content - Compact */}
           <motion.div 
-            className="space-y-4 sm:space-y-6 text-center lg:text-left"
+            className="space-y-3 sm:space-y-4 text-center lg:text-left"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -83,10 +70,10 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
             >
-              <p className="text-sm sm:text-base text-muted-foreground font-medium mb-2">
+              <p className="text-xs sm:text-sm text-muted-foreground font-medium mb-1">
                 Hi, I'm
               </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-display">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display">
                 <span className="text-gradient bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                   Hamid Manzoor
                 </span>
@@ -97,9 +84,9 @@ const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="h-8 sm:h-10"
+              className="h-7 sm:h-8"
             >
-              <h2 className="text-lg sm:text-xl lg:text-2xl text-foreground/80 font-semibold">
+              <h2 className="text-base sm:text-lg lg:text-xl text-foreground/80 font-semibold">
                 {typewriterText}
                 <span className="animate-blink border-r-2 border-primary ml-1"></span>
               </h2>
@@ -109,38 +96,36 @@ const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
-              className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0"
+              className="text-xs sm:text-sm lg:text-base text-muted-foreground max-w-lg mx-auto lg:mx-0"
             >
               Building <span className="text-primary font-semibold">scalable</span> and{' '}
               <span className="text-accent font-semibold">user-friendly</span> web experiences
             </motion.p>
 
             <motion.div
-              className="flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start pt-2"
+              className="flex flex-wrap gap-2 sm:gap-3 justify-center lg:justify-start pt-1"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
             >
               <Button 
-                size="lg" 
-                className="btn-hero text-sm sm:text-base font-semibold px-6 py-5"
+                className="btn-hero text-xs sm:text-sm font-semibold px-5 py-4"
                 onClick={() => scrollToSection('projects')}
               >
                 View Work
               </Button>
               <Button 
                 variant="outline" 
-                size="lg" 
-                className="btn-outline-primary text-sm sm:text-base font-semibold px-6 py-5"
+                className="btn-outline-primary text-xs sm:text-sm font-semibold px-5 py-4"
                 onClick={() => scrollToSection('contact')}
               >
-                <Mail className="mr-2 h-4 w-4" />
+                <Mail className="mr-2 h-3 w-3" />
                 Contact
               </Button>
             </motion.div>
 
             <motion.div
-              className="flex gap-4 justify-center lg:justify-start pt-2"
+              className="flex gap-3 justify-center lg:justify-start pt-1"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1 }}
@@ -149,34 +134,34 @@ const Hero = () => {
                 href="https://github.com/hamid567921" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors p-2"
-                whileHover={{ y: -3 }}
+                className="text-muted-foreground hover:text-primary transition-colors p-1.5"
+                whileHover={{ y: -2 }}
               >
-                <Github className="h-5 w-5" />
+                <Github className="h-4 w-4" />
               </motion.a>
               <motion.a 
                 href="https://www.linkedin.com/in/hamid-manzoor-76735b203?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors p-2"
-                whileHover={{ y: -3 }}
+                className="text-muted-foreground hover:text-primary transition-colors p-1.5"
+                whileHover={{ y: -2 }}
               >
-                <Linkedin className="h-5 w-5" />
+                <Linkedin className="h-4 w-4" />
               </motion.a>
               <motion.a 
                 href="mailto:hamid.manzoor@example.com"
-                className="text-muted-foreground hover:text-primary transition-colors p-2"
-                whileHover={{ y: -3 }}
+                className="text-muted-foreground hover:text-primary transition-colors p-1.5"
+                whileHover={{ y: -2 }}
               >
-                <Mail className="h-5 w-5" />
+                <Mail className="h-4 w-4" />
               </motion.a>
               <Button 
                 variant="ghost" 
                 size="sm" 
-                className="text-muted-foreground hover:text-primary p-2 h-auto"
+                className="text-muted-foreground hover:text-primary p-1.5 h-auto"
                 onClick={handleResumeDownload}
               >
-                <Download className="h-5 w-5" />
+                <Download className="h-4 w-4" />
               </Button>
             </motion.div>
           </motion.div>
@@ -186,11 +171,11 @@ const Hero = () => {
       {/* Scroll Indicator */}
       <motion.button 
         onClick={() => scrollToSection('about')}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground hover:text-primary transition-colors"
-        animate={{ y: [0, 8, 0] }}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 text-muted-foreground hover:text-primary transition-colors"
+        animate={{ y: [0, 6, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <ChevronDown className="h-6 w-6" />
+        <ChevronDown className="h-5 w-5" />
       </motion.button>
     </section>
   );
