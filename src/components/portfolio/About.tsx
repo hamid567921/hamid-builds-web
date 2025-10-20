@@ -39,7 +39,7 @@ const About = () => {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <Card className="rainbow-border">
+            <Card className="shadow-lg">
               <div className="card-gradient p-6 lg:p-8">
                 <CardContent className="p-0">
                   <div className="space-y-6">
@@ -92,7 +92,7 @@ const About = () => {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <Card className="rainbow-border">
+            <Card className="shadow-lg">
               <div className="card-gradient p-6 lg:p-8">
                 <CardContent className="p-0">
                   <h3 className="text-lg lg:text-xl font-semibold mb-6 text-gradient">Core Interests</h3>
@@ -118,27 +118,27 @@ const About = () => {
               </div>
             </Card>
 
-            <Card className="rainbow-border">
+            <Card className="shadow-lg">
               <div className="card-gradient p-6 lg:p-8">
                 <CardContent className="p-0">
                   <h3 className="text-lg lg:text-xl font-semibold mb-6 text-gradient">Development Philosophy</h3>
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-accent mt-2.5 animate-pulse"></div>
+                      <span className="text-accent mt-0.5">•</span>
                       <p className="text-muted-foreground responsive-text">
                         <strong className="text-foreground">Clean Code:</strong> Writing maintainable, 
                         readable code that follows best practices and industry standards.
                       </p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-primary mt-2.5 animate-pulse" style={{animationDelay: '0.5s'}}></div>
+                      <span className="text-primary mt-0.5">•</span>
                       <p className="text-muted-foreground responsive-text">
                         <strong className="text-foreground">User-Centric:</strong> Always considering 
                         the end user's experience and accessibility in every design decision.
                       </p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-success mt-2.5 animate-pulse" style={{animationDelay: '1s'}}></div>
+                      <span className="text-success mt-0.5">•</span>
                       <p className="text-muted-foreground responsive-text">
                         <strong className="text-foreground">Continuous Learning:</strong> Staying 
                         updated with latest technologies and continuously improving skills.

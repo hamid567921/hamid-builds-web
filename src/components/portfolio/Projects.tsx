@@ -87,7 +87,7 @@ const Projects = () => {
               viewport={{ once: true }}
               className="group"
             >
-              <Card className="rainbow-border h-full hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden group">
+              <Card className="h-full hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden group">
                 {/* Project Header with Gradient */}
                 <div className={`h-3 bg-gradient-to-r ${project.gradient} animate-pulse`}></div>
                 
@@ -151,7 +151,7 @@ const Projects = () => {
                           viewport={{ once: true }}
                           className="flex items-center gap-2 text-xs lg:text-sm text-muted-foreground"
                         >
-                          <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></div>
+                          <span className="text-primary">•</span>
                           {feature}
                         </motion.li>
                       ))}
