@@ -36,216 +36,162 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen relative hero-gradient flex items-center justify-center overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-10 left-5 sm:top-20 sm:left-10 w-32 h-32 sm:w-72 sm:h-72 bg-accent/30 rounded-full mix-blend-multiply filter blur-xl animate-float"></div>
-        <div className="absolute top-20 right-5 sm:top-40 sm:right-20 w-32 h-32 sm:w-72 sm:h-72 bg-primary/30 rounded-full mix-blend-multiply filter blur-xl animate-float" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-10 left-10 sm:-bottom-8 sm:left-20 w-32 h-32 sm:w-72 sm:h-72 bg-success/30 rounded-full mix-blend-multiply filter blur-xl animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 right-1/3 w-24 h-24 sm:w-48 sm:h-48 bg-warning/20 rounded-full mix-blend-multiply filter blur-xl animate-float" style={{ animationDelay: '0.5s' }}></div>
+    <section id="hero" className="min-h-screen relative bg-gradient-to-br from-background via-primary/5 to-accent/5 flex items-center justify-center overflow-hidden py-16 sm:py-20">
+      {/* Subtle animated shapes */}
+      <div className="absolute inset-0 overflow-hidden opacity-40">
+        <div className="absolute top-20 right-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 left-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
       </div>
 
-      <div className="container mx-auto responsive-padding relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16 xl:gap-20">
+      <div className="container mx-auto responsive-padding relative z-10 max-w-6xl">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           
-          {/* Content */}
+          {/* Profile Image - Compact Circle */}
           <motion.div 
-            className="flex-1 mobile-center max-w-2xl lg:max-w-none"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
+            className="flex justify-center lg:justify-start order-first"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, type: "spring" }}
+          >
+            <div className="relative">
+              <div className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden shadow-xl ring-4 ring-primary/20">
+                <motion.img 
+                  src={hamidProfile} 
+                  alt="Hamid Manzoor - Frontend Developer"
+                  className="w-full h-full object-cover"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </div>
+              <motion.div 
+                className="absolute -inset-2 rounded-full bg-gradient-to-tr from-primary/30 to-accent/30 -z-10"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              />
+            </div>
+          </motion.div>
+
+          {/* Content - Compact */}
+          <motion.div 
+            className="space-y-4 sm:space-y-6 text-center lg:text-left"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            {/* Greeting */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="mb-4 sm:mb-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
             >
-              <p className="text-lg sm:text-xl lg:text-2xl text-muted-foreground font-medium font-display tracking-wide">
-                Hello, I'm
+              <p className="text-sm sm:text-base text-muted-foreground font-medium mb-2">
+                Hi, I'm
               </p>
-            </motion.div>
-
-            {/* Main Name */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              className="mb-6 sm:mb-8"
-            >
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold font-display leading-tight">
-                <span className="text-gradient-rainbow bg-gradient-to-r from-primary via-accent to-success bg-size-200 animate-gradient-shift">
-                  Hamid
-                </span>{' '}
-                <span className="text-foreground">Manzoor</span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-display">
+                <span className="text-gradient bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                  Hamid Manzoor
+                </span>
               </h1>
             </motion.div>
 
-            {/* Typewriter Role */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-              className="mb-6 sm:mb-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="h-8 sm:h-10"
             >
-              <div className="h-12 sm:h-16 lg:h-20 flex items-center">
-                <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl text-gradient font-semibold font-display">
-                  {typewriterText}
-                  <span className="animate-blink border-r-2 border-primary ml-1"></span>
-                </h2>
-              </div>
+              <h2 className="text-lg sm:text-xl lg:text-2xl text-foreground/80 font-semibold">
+                {typewriterText}
+                <span className="animate-blink border-r-2 border-primary ml-1"></span>
+              </h2>
             </motion.div>
 
-            {/* Description */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-              className="mb-8 sm:mb-10 lg:mb-12"
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+              className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0"
             >
-              <p className="text-base sm:text-lg lg:text-xl xl:text-2xl text-muted-foreground leading-relaxed max-w-2xl font-medium">
-                Passionate about building{' '}
-                <span className="text-primary font-semibold">scalable</span>,{' '}
-                <span className="text-accent font-semibold">user-friendly</span>, and{' '}
-                <span className="text-success font-semibold">impactful</span> digital solutions.
-              </p>
-            </motion.div>
+              Building <span className="text-primary font-semibold">scalable</span> and{' '}
+              <span className="text-accent font-semibold">user-friendly</span> web experiences
+            </motion.p>
 
-            {/* Action Buttons */}
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start mb-8 sm:mb-12 lg:mb-16"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.0, duration: 0.6 }}
+              className="flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start pt-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
             >
               <Button 
                 size="lg" 
-                className="btn-hero text-base sm:text-lg font-semibold px-8 sm:px-10 py-4 sm:py-5 w-full sm:w-auto h-auto touch-friendly"
+                className="btn-hero text-sm sm:text-base font-semibold px-6 py-5"
                 onClick={() => scrollToSection('projects')}
               >
-                View My Work
+                View Work
               </Button>
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="btn-outline-primary text-base sm:text-lg font-semibold px-8 sm:px-10 py-4 sm:py-5 w-full sm:w-auto h-auto touch-friendly"
+                className="btn-outline-primary text-sm sm:text-base font-semibold px-6 py-5"
                 onClick={() => scrollToSection('contact')}
               >
-                <Mail className="mr-3 h-5 w-5" />
-                Get In Touch
+                <Mail className="mr-2 h-4 w-4" />
+                Contact
               </Button>
             </motion.div>
 
-            {/* Social Links */}
             <motion.div
-              className="flex gap-4 sm:gap-6 justify-center lg:justify-start flex-wrap"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.2, duration: 0.6 }}
+              className="flex gap-4 justify-center lg:justify-start pt-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
             >
               <motion.a 
                 href="https://github.com/hamid567921" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-all duration-300 p-3 hover:scale-110 hover:shadow-lg rounded-full touch-friendly group"
-                aria-label="Visit Hamid's GitHub profile"
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.95 }}
+                className="text-muted-foreground hover:text-primary transition-colors p-2"
+                whileHover={{ y: -3 }}
               >
-                <Github className="h-6 w-6 group-hover:animate-bounce-gentle" />
+                <Github className="h-5 w-5" />
               </motion.a>
               <motion.a 
                 href="https://www.linkedin.com/in/hamid-manzoor-76735b203?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-all duration-300 p-3 hover:scale-110 hover:shadow-lg rounded-full touch-friendly group"
-                aria-label="Visit Hamid's LinkedIn profile"
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.95 }}
+                className="text-muted-foreground hover:text-primary transition-colors p-2"
+                whileHover={{ y: -3 }}
               >
-                <Linkedin className="h-6 w-6 group-hover:animate-bounce-gentle" />
+                <Linkedin className="h-5 w-5" />
               </motion.a>
               <motion.a 
                 href="mailto:hamid.manzoor@example.com"
-                className="text-muted-foreground hover:text-primary transition-all duration-300 p-3 hover:scale-110 hover:shadow-lg rounded-full touch-friendly group"
-                aria-label="Send email to Hamid"
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.95 }}
+                className="text-muted-foreground hover:text-primary transition-colors p-2"
+                whileHover={{ y: -3 }}
               >
-                <Mail className="h-6 w-6 group-hover:animate-bounce-gentle" />
+                <Mail className="h-5 w-5" />
               </motion.a>
-              <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.95 }}>
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110 touch-friendly font-semibold"
-                  onClick={handleResumeDownload}
-                  aria-label="Download Hamid's resume"
-                >
-                  <Download className="mr-2 h-5 w-5" />
-                  <span className="hidden sm:inline">Resume</span>
-                  <span className="sm:hidden">CV</span>
-                </Button>
-              </motion.div>
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="text-muted-foreground hover:text-primary p-2 h-auto"
+                onClick={handleResumeDownload}
+              >
+                <Download className="h-5 w-5" />
+              </Button>
             </motion.div>
-          </motion.div>
-
-          {/* Profile Image */}
-          <motion.div 
-            className="flex-1 flex justify-center lg:justify-end order-first lg:order-last max-w-md lg:max-w-none"
-            initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ delay: 0.4, duration: 0.8, type: "spring", stiffness: 100 }}
-          >
-            <div className="relative">
-              <div className="rainbow-border animate-gradient-shift">
-                <div className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] rounded-full overflow-hidden shadow-2xl">
-                  <motion.img 
-                    src={hamidProfile} 
-                    alt="Hamid Manzoor - Frontend Developer and Computer Science Student"
-                    className="w-full h-full object-cover"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </div>
-              </div>
-              <motion.div 
-                className="absolute inset-0 w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] rounded-full bg-gradient-to-tr from-accent/20 via-primary/20 to-success/20"
-                animate={{ 
-                  scale: [1, 1.05, 1],
-                  opacity: [0.3, 0.5, 0.3]
-                }}
-                transition={{ 
-                  duration: 3, 
-                  repeat: Infinity, 
-                  ease: "easeInOut" 
-                }}
-              />
-            </div>
           </motion.div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div 
-        className="absolute bottom-6 sm:bottom-8 lg:bottom-10 left-1/2 transform -translate-x-1/2"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.5, duration: 0.6 }}
+      <motion.button 
+        onClick={() => scrollToSection('about')}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground hover:text-primary transition-colors"
+        animate={{ y: [0, 8, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
       >
-        <motion.button 
-          onClick={() => scrollToSection('about')}
-          className="text-muted-foreground hover:text-primary transition-colors duration-300 touch-friendly"
-          aria-label="Scroll to About section"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          <ChevronDown className="h-6 w-6 sm:h-8 sm:w-8" />
-        </motion.button>
-      </motion.div>
+        <ChevronDown className="h-6 w-6" />
+      </motion.button>
     </section>
   );
 };
