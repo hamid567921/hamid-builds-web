@@ -131,26 +131,20 @@ const Contact = () => {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <Card className="rainbow-border hover:shadow-xl transition-all duration-500 transform hover:scale-105">
-                      <div className="card-gradient p-4 lg:p-6">
-                        <CardContent className="p-0">
-                          <div className="flex items-center gap-3 lg:gap-4">
-                            <div className="p-2.5 lg:p-3 rounded-xl bg-gradient-to-r from-primary to-accent text-white shadow-lg">
-                              <info.icon className="h-4 w-4 lg:h-5 lg:w-5" />
-                            </div>
-                            <div>
-                              <h4 className="font-semibold text-foreground text-sm lg:text-base">{info.label}</h4>
-                              <a 
-                                href={info.href}
-                                className={`text-muted-foreground hover:text-gradient transition-all duration-300 text-sm lg:text-base`}
-                              >
-                                {info.value}
-                              </a>
-                            </div>
-                          </div>
-                        </CardContent>
+                    <div className="flex items-center gap-3 lg:gap-4 p-4 rounded-lg bg-card/50 hover:bg-card transition-all duration-300">
+                      <div className="p-2.5 lg:p-3 rounded-lg bg-primary/10">
+                        <info.icon className={`h-4 w-4 lg:h-5 lg:w-5 ${info.color}`} />
                       </div>
-                    </Card>
+                      <div>
+                        <h4 className="font-medium text-foreground text-sm lg:text-base">{info.label}</h4>
+                        <a 
+                          href={info.href}
+                          className="text-muted-foreground hover:text-primary transition-colors text-sm lg:text-base"
+                        >
+                          {info.value}
+                        </a>
+                      </div>
+                    </div>
                   </motion.div>
                 ))}
               </div>
@@ -175,9 +169,8 @@ const Contact = () => {
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    whileHover={{ scale: 1.2, rotate: 5 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`p-3 rounded-xl bg-gradient-to-r from-primary to-accent text-white ${social.color} transition-all duration-300 hover:shadow-xl`}
+                    whileHover={{ scale: 1.1 }}
+                    className="p-3 rounded-lg bg-primary/10 hover:bg-primary hover:text-white transition-all duration-300"
                     aria-label={`Connect with Hamid on ${social.label}`}
                   >
                     <social.icon className="h-5 w-5 lg:h-6 lg:w-6" />
@@ -192,21 +185,16 @@ const Contact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
+              className="p-4 lg:p-6 rounded-lg bg-success/10 border-l-4 border-l-success"
             >
-              <Card className="rainbow-border">
-                <div className="card-gradient p-4 lg:p-6 border-l-4 border-l-success">
-                  <CardContent className="p-0">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-3 h-3 rounded-full bg-success animate-pulse"></div>
-                      <h4 className="font-semibold text-foreground text-sm lg:text-base">Available for Opportunities</h4>
-                    </div>
-                    <p className="text-muted-foreground text-xs lg:text-sm leading-relaxed">
-                      I'm actively looking for frontend developer positions and internship 
-                      opportunities. Open to discussing exciting projects and collaborations.
-                    </p>
-                  </CardContent>
-                </div>
-              </Card>
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-2.5 h-2.5 rounded-full bg-success"></div>
+                <h4 className="font-semibold text-foreground text-sm lg:text-base">Available for Opportunities</h4>
+              </div>
+              <p className="text-muted-foreground text-xs lg:text-sm leading-relaxed">
+                I'm actively looking for frontend developer positions and internship 
+                opportunities. Open to discussing exciting projects and collaborations.
+              </p>
             </motion.div>
           </motion.div>
 
@@ -218,8 +206,8 @@ const Contact = () => {
             viewport={{ once: true }}
             className="lg:col-span-2"
           >
-            <Card className="rainbow-border">
-              <div className="card-gradient p-6 lg:p-8">
+            <Card className="shadow-lg">
+              <div className="p-6 lg:p-8">
                 <CardHeader className="p-0 mb-6 lg:mb-8">
                   <div className="flex items-center gap-3 mb-4">
                     <MessageSquare className="h-5 w-5 lg:h-6 lg:w-6 text-gradient" />
