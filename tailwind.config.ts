@@ -112,6 +112,7 @@ export default {
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
         display: ["Space Grotesk", "Inter", "sans-serif"],
+        modern: ["Poppins", "Inter", "sans-serif"],
         mono: ["Fira Code", "monospace"],
       },
       animation: {
