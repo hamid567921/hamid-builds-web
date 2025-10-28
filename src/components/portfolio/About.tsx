@@ -22,10 +22,10 @@ const About = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-modern font-bold mb-4">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-modern font-bold mb-6">
             About <span className="text-gradient">Me</span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto font-modern font-light">
+          <p className="text-xl md:text-2xl lg:text-3xl text-muted-foreground max-w-3xl mx-auto font-modern font-light">
             B.Tech Graduate | Frontend Developer | Problem Solver
           </p>
         </motion.div>
@@ -43,9 +43,9 @@ const About = () => {
               <div className="p-8 lg:p-10">
                 <CardContent className="p-0">
                   <div className="space-y-6">
-                    <div className="flex items-start gap-3">
-                      <div className="w-1 h-20 bg-gradient-to-b from-primary to-accent rounded-full"></div>
-                      <p className="text-lg lg:text-xl leading-relaxed text-foreground font-modern">
+                    <div className="flex items-start gap-4">
+                      <div className="w-1.5 h-24 bg-gradient-to-b from-primary to-accent rounded-full"></div>
+                      <p className="text-xl lg:text-2xl leading-relaxed text-foreground font-modern">
                         I recently completed my <span className="text-primary font-semibold">B.Tech in Computer Science Engineering</span> (2025) from{' '}
                         <span className="text-gradient font-bold">
                           Government College of Engineering and Technology
@@ -54,19 +54,19 @@ const About = () => {
                       </p>
                     </div>
                     
-                    <p className="text-base lg:text-lg leading-relaxed text-muted-foreground font-modern font-light pl-7">
+                    <p className="text-lg lg:text-xl leading-relaxed text-muted-foreground font-modern font-light pl-8">
                       My journey in frontend development has been fueled by curiosity and the drive 
                       to build impactful solutions. I specialize in <span className="text-primary font-medium">modern web technologies</span> and 
                       constantly explore innovative ways to enhance user experiences through clean, 
                       efficient code and thoughtful design.
                     </p>
 
-                    <div className="pl-7 pt-2">
-                      <div className="flex items-center gap-2 mb-3">
-                        <div className="w-2 h-2 rounded-full bg-accent"></div>
-                        <p className="text-sm lg:text-base text-accent font-modern font-semibold">Key Achievements</p>
+                    <div className="pl-8 pt-2">
+                      <div className="flex items-center gap-2 mb-4">
+                        <div className="w-2.5 h-2.5 rounded-full bg-accent"></div>
+                        <p className="text-base lg:text-lg text-accent font-modern font-semibold">Key Achievements</p>
                       </div>
-                      <p className="text-base lg:text-lg leading-relaxed text-muted-foreground font-modern font-light">
+                      <p className="text-lg lg:text-xl leading-relaxed text-muted-foreground font-modern font-light">
                         Collaborated with teammates Faizan, Saqib, and Mosin on innovative projects, 
                         explored cutting-edge web development trends, and actively contributed to open-source communities.
                       </p>
@@ -85,10 +85,10 @@ const About = () => {
                   transition={{ delay: 0.2, duration: 0.6 }}
                   viewport={{ once: true }}
                 >
-                  <h3 className="text-xl lg:text-2xl font-modern font-bold mb-4 text-gradient flex items-center gap-2">
-                    <span className="text-2xl">🎯</span> Career Vision
+                  <h3 className="text-2xl lg:text-3xl font-modern font-bold mb-5 text-gradient flex items-center gap-3">
+                    <span className="text-3xl">🎯</span> Career Vision
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed text-base lg:text-lg font-modern font-light">
+                  <p className="text-muted-foreground leading-relaxed text-lg lg:text-xl font-modern font-light">
                     I aspire to become a <span className="text-primary font-semibold">full-stack developer</span> who bridges the gap between 
                     design and technology, creating scalable web applications that solve 
                     real-world problems and deliver exceptional user experiences.
@@ -109,10 +109,10 @@ const About = () => {
             <Card className="shadow-xl border-0 bg-gradient-to-br from-accent/10 to-primary/10 backdrop-blur">
               <div className="p-6 lg:p-8">
                 <CardContent className="p-0">
-                  <h3 className="text-xl lg:text-2xl font-modern font-bold mb-6 text-gradient flex items-center gap-2">
-                    <span className="text-2xl">💡</span> Core Interests
+                  <h3 className="text-2xl lg:text-3xl font-modern font-bold mb-6 text-gradient flex items-center gap-3">
+                    <span className="text-3xl">💡</span> Core Interests
                   </h3>
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap gap-3 lg:gap-4">
                     {interests.map((interest, index) => (
                       <motion.div
                         key={interest}
@@ -123,7 +123,7 @@ const About = () => {
                       >
                         <Badge 
                           variant="secondary" 
-                          className="px-4 lg:px-5 py-2 lg:py-2.5 text-sm lg:text-base font-modern font-medium bg-gradient-to-r from-primary/20 to-accent/20 hover:from-primary hover:to-accent hover:text-white border border-primary/30 transition-all duration-300 cursor-default shadow-md"
+                          className="px-5 lg:px-6 py-2.5 lg:py-3 text-base lg:text-lg font-modern font-medium bg-gradient-to-r from-primary/20 to-accent/20 hover:from-primary hover:to-accent hover:text-white border border-primary/30 transition-all duration-300 cursor-default shadow-md"
                         >
                           {interest}
                         </Badge>
